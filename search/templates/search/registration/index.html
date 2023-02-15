@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>MySecurity Resources</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
+  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/css/custom.css' %}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: MySecurity Resources - v4.9.1
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center justify-content-center">
+    <div class="container" data-aos="fade-up">
+
+      <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
+        <span style="float: right;">
+          {% if user.is_authenticated %}
+            Hello, {{ user.first_name }}. <a href="{% url 'logout' %}?next=/">Log out </a>.
+          {% else %}
+          Not logged in.  <a href="{% url 'login' %}?next=/">Log in</a>. <br>
+          <p> Not registered yet? <a href="{% url 'register' %}"> Register </a>. </p>
+          {% endif %}
+      </span>
+        <div class="col-xl-12 col-lg-12" style="max-width:850px;">
+          <a href=""><img src="{% static 'assets/img/logo_mysecurity.png' %}" class="img-fluid" alt="" style="max-width: 450px;"></a>
+          <h1>Over 20,000 cyber security articles in one library. Discover trends in cyber security over the past decade.</h1>
+          
+        </div>
+      </div>
+
+
+      {% if user.is_authenticated %}
+      <div class="mt-3">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#home">Search Articles</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#menu1">Search Trends</a>
+          </li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div id="home" class="tab-pane active">
+            <form id="a1" name="form1" action="{% url 'inner' %}" method="GET">
+                {% csrf_token %}
+                
+              <input type="text" name="query" value="" placeholder="Search for Articles">
+              <input type="submit" name="">
+            </form>
+          </div>
+          <div id="menu1" class="tab-pane fade">
+            <form id="a2" name="form2" action="{% url 'trends' %}" method="GET">
+                {% csrf_token %}
+              <input type="text" name="tquery" value="" placeholder="Search for Trends">
+              <input type="submit" name="">
+            </form>
+          </div>
+        </div>
+      </div>
+
+    {% endif %}
+      
+      <div class="row gy-4 mt-15 justify-content-center" data-aos="zoom-in" data-aos-delay="250">
+        <div class="col-xl-2 col-md-4">
+          <img src="{% static 'assets/img/logo_image-01.png' %}" class="img-fluid" alt="">
+        </div>
+        <div class="col-xl-2 col-md-4">
+          <img src="{% static 'assets/img/logo_image-02.png' %}" class="img-fluid" alt="">
+        </div>
+        <div class="col-xl-2 col-md-4">
+          <img src="{% static 'assets/img/logo_image-03.png' %}" class="img-fluid" alt="">
+        </div>
+        <div class="col-xl-2 col-md-4">
+          <img src="{% static 'assets/img/logo_image-04.png' %}" class="img-fluid" alt="">
+        </div>
+        <div class="col-xl-2 col-md-4">
+          <img src="{% static 'assets/img/logo_image-05.png' %}" class="img-fluid" alt="">
+        </div>
+      </div>
+
+
+      <div class="row gy-4 mt-15 justify-content-center" data-aos="zoom-in" data-aos-delay="250">
+        <div class="col-xl-2 col-md-4">
+          <img src="{% static 'assets/img/logo_image-06.png' %}" class="img-fluid" alt="">
+        </div>
+        <div class="col-xl-2 col-md-4">
+          <img src="{% static 'assets/img/logo_image-07.png' %}" class="img-fluid" alt="">
+        </div>
+        <div class="col-xl-2 col-md-4">
+          <img src="{% static 'assets/img/logo_image-08.png' %}" class="img-fluid" alt="">
+        </div>
+        <div class="col-xl-2 col-md-4">
+          <img src="{% static 'assets/img/logo_image-09.png' %}" class="img-fluid" alt="">
+        </div>
+        <div class="col-xl-2 col-md-4">
+          <img src="{% static 'assets/img/logo_image-10.png' %}" class="img-fluid" alt="">
+        </div>
+        <div class="col-xl-2 col-md-4">
+          <img src="{% static 'assets/img/logo_image-11.png' %}" class="img-fluid" alt="">
+        </div>
+      </div>
+
+
+    </div>
+  </section><!-- End Hero -->
+
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    
+    <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-xl-6 col-lg-6">© My Security Resources 2022. All Rights Reserved.</div>
+      <div class="col-xl-6 col-lg-6" style="text-align: right;"><a href="#">Privacy Policy</a> &nbsp; &nbsp; &nbsp; <a href="#">Terms & Conditions</a></div>
+    </div>
+    </div>
+  </footer><!-- End Footer -->
+
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+  <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+
+</html>
+
